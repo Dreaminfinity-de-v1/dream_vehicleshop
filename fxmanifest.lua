@@ -7,8 +7,8 @@ description 'Vehicleshop von Dreaminfinity.de'
 version '0.1.0-alpha'
 
 server_scripts {
-	'@mysql-async/lib/MySQL.lua',
 	'@es_extended/locale.lua',
+	'@mysql-async/lib/MySQL.lua',
 
 	'locales/en.lua',
 
@@ -30,11 +30,13 @@ client_scripts {
 	'client/functions/*.lua',
 
 	'client/client.lua',
+	'client/interactions.lua',
+	'client/blips_npcs.lua',
 }
 
 dependencies {
 	'es_extended',
 	'NativeUILua',
 	'mysql-async',
-	'zf_dialog',
+	--'zf_dialog',
 }
