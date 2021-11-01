@@ -50,7 +50,7 @@ Citizen.CreateThread(function()
             interactionArea     = area
             interactionPart     = part
             interactionMSG      = MSG
-            TriggerEvent('dream_garage:hasEnteredInteractionArea', area, part)
+            TriggerEvent('dream_vehicleshop:hasEnteredInteractionArea', area, part)
         end
 
         if not isIn and HasAlreadyEnteredInteractionArea then
@@ -60,7 +60,7 @@ Citizen.CreateThread(function()
             interactionPart     = nil
             interactionMSG      = nil
 
-            TriggerEvent('dream_garage:hasExitedInteractionArea', area, part)
+            TriggerEvent('dream_vehicleshop:hasExitedInteractionArea', area, part)
         end
 
     end
@@ -79,7 +79,7 @@ Citizen.CreateThread(function ()
 
                 if interactionPart == 'cardealer' then
                     Citizen.CreateThread(function()
-                        print('GESCHAFFT!!!!')
+                        openCardealerMenu()
                     end)
                 end
 

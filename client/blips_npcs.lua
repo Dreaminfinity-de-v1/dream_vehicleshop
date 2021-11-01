@@ -12,7 +12,7 @@ Citizen.CreateThread(function()
 
         -- Blips
         if v.blip ~= nil then
-            blips['cardealer'][v.id] = createBlip(v.blip.pos, v.blip.sprite or 524, v.blip.display, v.blip.color or 3, v.blip.scale, v.blip.titel or _U('cardealer_blip_name'))
+            blips['cardealer'][v.id] = createBlip(v.blip.pos, v.blip.sprite or 524, v.blip.display or 2, v.blip.color or 3, (v.blip.scale or 1) + 0.0, v.blip.titel or _U('cardealer_blip_name'))
         end
 
         -- NPCs

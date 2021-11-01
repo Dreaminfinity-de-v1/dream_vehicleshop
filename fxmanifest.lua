@@ -4,7 +4,7 @@ game 'gta5'
 
 description 'Vehicleshop von Dreaminfinity.de'
 
-version '0.1.0-alpha'
+version '0.2.0-alpha'
 
 server_scripts {
 	'@es_extended/locale.lua',
@@ -13,6 +13,7 @@ server_scripts {
 	'locales/en.lua',
 
 	'config.lua',
+	'config_vehicles.lua',
 
 	'server/functions/*.lua',
 
@@ -26,17 +27,22 @@ client_scripts {
 	'locales/en.lua',
 
 	'config.lua',
+	'config_vehicles.lua',
 
+	'client/functions/utils.lua',
 	'client/functions/*.lua',
 
 	'client/client.lua',
 	'client/interactions.lua',
 	'client/blips_npcs.lua',
+	'client/vehicleshop_menu/open_cardealermenu.lua',
+	'client/vehicleshop_menu/menu_vehicle_list.lua',
 }
 
 dependencies {
 	'es_extended',
 	'NativeUILua',
 	'mysql-async',
+	'dream_garage',
 	--'zf_dialog',
 }

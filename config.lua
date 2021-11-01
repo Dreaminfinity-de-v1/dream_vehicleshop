@@ -14,9 +14,10 @@ Config.Cardealer        = {
         name = "Premium Deluxe Motorsport",
         blip = {
             pos     = vector3(-56.7403, -1098.9110, 25.4224),
+            titel   = "Premium Deluxe Motorsport",
             color   = 56,
             sprite  = 225, -- Icontype
-            scale   = 1.0,
+            scale   = 1.25,
             display = 2,
         },
         cardealer = {
@@ -27,5 +28,12 @@ Config.Cardealer        = {
             radius = 3,
         },
     },
+}
+
+Config.Colors           = {
+    {id = 27, name = "Metallic Red"},
+    {id = 0, name = "Metallic Black"},
+    {id = 88, name = "Metallic Taxi Yellow"},
+    {id = 55, name = "Matte Lime Green"},
 }
 
