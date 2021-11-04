@@ -7,16 +7,16 @@ Citizen.CreateThread(function()
 
 	if not Config.EnableBlips then return end
 
-    blips['cardealer'] = {}
-	for i, v in ipairs(Config.Cardealer) do
+    blips['dealer'] = {}
+	for i, v in ipairs(Config.Shops) do
 
         -- Blips
         if v.blip ~= nil then
-            blips['cardealer'][v.id] = createBlip(v.blip.pos, v.blip.sprite or 524, v.blip.display or 2, v.blip.color or 3, (v.blip.scale or 1) + 0.0, v.blip.titel or _U('cardealer_blip_name'))
+            blips['dealer'][v.id] = createBlip(v.blip.pos, v.blip.sprite or 524, v.blip.display or 2, v.blip.color or 3, (v.blip.scale or 1) + 0.0, v.blip.titel or _U('dealer_blip_name'))
         end
 
         -- NPCs
-        spawnNPC(v.cardealer.type, v.cardealer.model, v.cardealer.pos, v.cardealer.heading)
+        spawnNPC(v.dealer.type, v.dealer.model, v.dealer.pos, v.dealer.heading)
 
 	end
 end)

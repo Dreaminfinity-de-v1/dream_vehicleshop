@@ -26,14 +26,14 @@ Citizen.CreateThread(function()
 		local playerPed = PlayerPedId()
 		local PlayerCoords    = GetEntityCoords(playerPed)
 
-        for i, v in ipairs(Config.Cardealer) do
+        for i, v in ipairs(Config.Shops) do
             continue = true
-            local distance  = GetDistanceBetweenCoords(PlayerCoords, v.cardealer.pos, true)
-            if distance <= (v.cardealer.radius or 2) then
+            local distance  = GetDistanceBetweenCoords(PlayerCoords, v.dealer.pos, true)
+            if distance <= (v.dealer.radius or 2) then
                 isIn = true
                 area = v.id
-                part = 'cardealer'
-                MSG = _U('help_notification_cardealer')
+                part = 'dealer'
+                MSG = _U('help_notification_dealer')
                 break
             end
         end
@@ -77,9 +77,9 @@ Citizen.CreateThread(function ()
 
             if IsControlJustReleased(0, Config.KeyControle) then
 
-                if interactionPart == 'cardealer' then
+                if interactionPart == 'dealer' then
                     Citizen.CreateThread(function()
-                        openCardealerMenu()
+                        openDealerMenu()
                     end)
                 end
 

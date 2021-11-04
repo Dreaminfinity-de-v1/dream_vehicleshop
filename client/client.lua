@@ -8,6 +8,7 @@ AddEventHandler('onResourceStop', function(resourceName)
     end
 
     removeNPCs()
+    clearCam()
 
 end)
 
