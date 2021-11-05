@@ -26,25 +26,46 @@ function openDealerMenu()
 
     addVehicleList(mainMenu, getShopFromId(interactionArea))
     setCam(getShopFromId(interactionArea))
-    --setVehicle() -- TODO: set first vehicle in category
+    --setVehicle(mainMenu, shop.catalog[1].vehicles[1], shop.spawnpoint, shop.spawnhead)
+    setVehicle(mainMenu, mainMenu.Children[mainMenu.Items[1]].category.vehicles[1], shop.spawnpoint, shop.spawnhead)
 
+    
+    
     menuPool:RefreshIndex()
 
     menuPool:ControlDisablingEnabled(false)
     menuPool:MouseControlsEnabled(false)
 
     mainMenu:Visible(true)
+    
+    
+    mainMenu.OnIndexChange = OnIndexChange
 
     mainMenu.OnMenuClosed = function (menu)
         HasAlreadyEnteredInteractionArea = false
         menuPool:Clear()
     end
-
+    
     while isInInteractionArea and HasAlreadyEnteredInteractionArea do
         Citizen.Wait(0)
         menuPool:ProcessMenus()
     end
 
     clearCam()
+    clearVehicle()
     menuPool:Clear()
+end
+
+
+function OnIndexChange(menu, index)
+    shop = getShopFromId(interactionArea)
+    local submenu = menu.Children[menu.Items[index]]
+    
+    if submenu.category ~= nil then
+        setVehicle(menu, submenu.category.vehicles[submenu:CurrentSelection()], shop.spawnpoint, shop.spawnhead) --TODO
+    end
+    
+    if submenu.vehicle ~= nil then
+        setVehicle(menu, submenu.vehicle, shop.spawnpoint, shop.spawnhead)
+    end
 end
