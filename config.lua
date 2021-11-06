@@ -1,4 +1,5 @@
 Config                  = {}
+Config.Catalog          = {}
 
 Config.Locale           = 'en'
 Config.EnableBlips      = true
@@ -15,4 +16,3 @@ Config.Colors           = {
     {id = 55, name = "Matte Lime Green"},
 }
 
-Config.Catalog = {}

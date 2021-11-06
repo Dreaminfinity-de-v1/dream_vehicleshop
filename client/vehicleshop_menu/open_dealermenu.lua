@@ -26,7 +26,6 @@ function openDealerMenu()
 
     addVehicleList(mainMenu, getShopFromId(interactionArea))
     setCam(getShopFromId(interactionArea))
-    --setVehicle(mainMenu, shop.catalog[1].vehicles[1], shop.spawnpoint, shop.spawnhead)
     setVehicle(mainMenu, mainMenu.Children[mainMenu.Items[1]].category.vehicles[1], shop.spawnpoint, shop.spawnhead)
 
     
@@ -62,7 +61,7 @@ function OnIndexChange(menu, index)
     local submenu = menu.Children[menu.Items[index]]
     
     if submenu.category ~= nil then
-        setVehicle(menu, submenu.category.vehicles[submenu:CurrentSelection()], shop.spawnpoint, shop.spawnhead) --TODO
+        setVehicle(menu, submenu.Children[submenu.Items[submenu:CurrentSelection()]].vehicle, shop.spawnpoint, shop.spawnhead)
     end
     
     if submenu.vehicle ~= nil then
