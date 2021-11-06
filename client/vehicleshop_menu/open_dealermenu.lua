@@ -12,8 +12,8 @@ function openDealerMenu()
 
     if shop.catalog == nil or #shop.catalog <= 0 or found == false then
     
-        local shopid = getShopId(shop.id)
-        local mugshot, mugshotStr = ESX.Game.GetPedMugshot(npcs[shopid])
+        local shopIndex = getShopIndexFromId(shop.id)
+        local mugshot, mugshotStr = ESX.Game.GetPedMugshot(npcs[shopIndex])
 
         ESX.ShowAdvancedNotification(shop.titel or _U('dealermenu_titel'), shop.name, _U('dealer_not-open'), mugshotStr, 7, false, false, 90)
         UnregisterPedheadshot(mugshot)

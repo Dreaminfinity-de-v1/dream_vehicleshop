@@ -4,7 +4,7 @@ game 'gta5'
 
 description 'Vehicleshop von Dreaminfinity.de'
 
-version '0.5.0-alpha'
+version '0.6.0-alpha'
 
 server_scripts {
 	'@es_extended/locale.lua',
@@ -13,8 +13,10 @@ server_scripts {
 	'locales/en.lua',
 
 	'config.lua',
-	'config_vehicles.lua',
+	'catalog_car_underclass.lua',
+	'config_shops.lua', -- Always load at last
 
+	'cl_sv_utils.lua',
 	'server/functions/*.lua',
 
 	'server/server.lua',
@@ -30,6 +32,8 @@ client_scripts {
 	'catalog_car_underclass.lua',
 	'config_shops.lua', -- Always load at last
 
+	
+	'cl_sv_utils.lua',
 	'client/functions/setcam.lua',
 	'client/functions/setvehicle.lua',
 	'client/functions/utils.lua',
@@ -44,7 +48,8 @@ client_scripts {
 dependencies {
 	'es_extended',
 	'NativeUILua',
-	'mysql-async',
-	'dream_garage',
+	'dream_addon',
+	--'mysql-async',
+	--'dream_garage',
 	--'zf_dialog',
 }

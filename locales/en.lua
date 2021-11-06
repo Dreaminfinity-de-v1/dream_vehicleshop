@@ -15,6 +15,9 @@ Locales['en'] = {
   ['vehicleshop_item_buy'] = "~g~~h~Buy~h~ the vehicle",
   ['vehicleshop_item_buy_label'] = "%s$",
   ['vehicleshop_item_buy_desc'] = "",
+
+  ['vehicleshop_item_loading'] = "~r~LOADING...~s",
+  ['vehicleshop_item_loading_error'] = "~r~ERROR~s",
 }
 
 

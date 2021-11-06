@@ -12,16 +12,19 @@ function addVehicleList(menu, shop)
             local submenu = menuPool:AddSubMenu(menu, v.titel)
             submenu.category = v
             submenu.category.vehicle = nil
+            submenu.category.index = i
 
             submenu.OnIndexChange = OnIndexChange
             for i2,v2 in ipairs(v.vehicles) do
                 local vehiclemenu = menuPool:AddSubMenu(submenu, v2.titel or 'model: '..v2.model)
 
                 vehiclemenu.vehicle = v2
+                vehiclemenu.vehicle.categoryIndex = i
+                vehiclemenu.vehicle.index = i2
 
                 if #colors > 0 then
-                    vehiclemenu.vehicle.maincolor = Config.Colors[1].id
-                    vehiclemenu.vehicle.secondcolor = Config.Colors[1].id
+                    vehiclemenu.vehicle.maincolor = 1
+                    vehiclemenu.vehicle.secondcolor = 1
                     maincolor = NativeUI.CreateListItem(_U('vehicleshop_item_maincolor'), colors, 1, _U('vehicleshop_item_maincolor_desc'))
                     secondcolor = NativeUI.CreateListItem(_U('vehicleshop_item_secondcolor'), colors, 1, _U('vehicleshop_item_secondcolor_desc'))
                     vehiclemenu:AddItem(maincolor)
@@ -29,13 +32,13 @@ function addVehicleList(menu, shop)
 
                     maincolor.OnListChanged = function(menu, item, index)
                         
-                        menu.vehicle.maincolor = Config.Colors[index].id
+                        menu.vehicle.maincolor = index
                         updateColor(menu.vehicle)
                     end
     
                     secondcolor.OnListChanged = function(menu, item, index)
                         
-                        menu.vehicle.secondcolor = Config.Colors[index].id
+                        menu.vehicle.secondcolor = index
                         updateColor(menu.vehicle)
                     end
                 end
@@ -53,5 +56,6 @@ function addVehicleList(menu, shop)
     end
 end
 
-function buyVehicle() -- TODO
+function buyVehicle(menu, item, panels) -- TODO
+    TriggerServerEvent('dream_vehicleshop:buyVehicle', interactionArea, menu.vehicle.categoryIndex, menu.vehicle.index, menu.vehicle.maincolor, menu.vehicle.secondcolor)
 end

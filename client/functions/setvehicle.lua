@@ -17,11 +17,11 @@ function setVehicle(_menu, vehicledata, coords, heading)
     Citizen.CreateThread(function()
         while loading do
             Citizen.Wait(0)
-            DrawTxt("~r~LOADING...~s", 0.4, 0.5)
+            DrawTxt(_U('vehicleshop_item_loading'), 0.4, 0.5)
         end
         while error do
             Citizen.Wait(0)
-            DrawTxt("~r~ERROR~s", 0.4, 0.5)
+            DrawTxt(_U('vehicleshop_item_loading_error'), 0.4, 0.5)
         end
     
     end)
@@ -60,6 +60,6 @@ end
 
 function updateColor(vehicledata)
 
-    SetVehicleColours(vehicle, vehicledata.maincolor, vehicledata.secondcolor)
+    SetVehicleColours(vehicle, Config.Colors[vehicledata.maincolor].id, Config.Colors[vehicledata.secondcolor].id)
     SetVehicleExtraColours(vehicle, 0, 156) -- 156 = default alloy color.
 end
