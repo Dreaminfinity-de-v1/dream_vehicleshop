@@ -1,4 +1,6 @@
 vehicle = nil
+loading = true
+error = false
 function setVehicle(_menu, vehicledata, coords, heading)
     menu = _menu
     menu.Controls.Back.Enabled = false
@@ -10,9 +12,29 @@ function setVehicle(_menu, vehicledata, coords, heading)
 
     clearVehicle()
 
-    ESX.Game.SpawnLocalVehicle(vehicledata.model, coords, heading, function(_vehicle) --TODO: add Timer for Controls and show loadingtext
+    loading = true
+    error = false
+    Citizen.CreateThread(function()
+        while loading do
+            Citizen.Wait(0)
+            DrawTxt("~r~LOADING...~s", 0.4, 0.5)
+        end
+        while error do
+            Citizen.Wait(0)
+            DrawTxt("~r~ERROR~s", 0.4, 0.5)
+        end
+    
+    end)
+
+    ESX.Game.SpawnLocalVehicle(vehicledata.model, coords, heading, function(_vehicle)
         clearVehicle()
+
+        if _vehicle == 0 then
+            error = true
+        end
+
         vehicle = _vehicle
+        loading = false
 
         FreezeEntityPosition(vehicle, true)
         SetEntityCollision(vehicle, false, false)
@@ -37,7 +59,7 @@ function clearVehicle()
 end
 
 function updateColor(vehicledata)
-    
+
     SetVehicleColours(vehicle, vehicledata.maincolor, vehicledata.secondcolor)
     SetVehicleExtraColours(vehicle, 0, 156) -- 156 = default alloy color.
 end

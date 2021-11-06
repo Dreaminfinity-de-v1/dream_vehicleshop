@@ -4,7 +4,7 @@ game 'gta5'
 
 description 'Vehicleshop von Dreaminfinity.de'
 
-version '0.4.0-alpha'
+version '0.5.0-alpha'
 
 server_scripts {
 	'@es_extended/locale.lua',

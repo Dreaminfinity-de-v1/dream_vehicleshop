@@ -50,6 +50,9 @@ function openDealerMenu()
         menuPool:ProcessMenus()
     end
 
+    
+    loading = true
+    error = false
     clearCam()
     clearVehicle()
     menuPool:Clear()
