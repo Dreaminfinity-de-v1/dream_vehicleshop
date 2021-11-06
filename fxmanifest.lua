@@ -2,7 +2,9 @@ fx_version 'adamant'
 
 game 'gta5'
 
-description 'Vehicleshop von Dreaminfinity.de'
+description 'Vehicleshop from Dreaminfinity.de'
+
+author 'EThunder, Grewo'
 
 version '0.6.0-alpha'
 
