@@ -2,6 +2,7 @@ Config.Shops        = {
     {
         id = 'premium_deluxe_motorsport',
         --titel = "",
+        type = "car",
         name = "Premium Deluxe Motorsport",
         blip = {
             pos     = vector3(-56.7403, -1098.9110, 25.4224),
@@ -22,5 +23,7 @@ Config.Shops        = {
         camPos = vector3(-53.25, -1091.90, 28.20),
         spawnpoint = vector3(-48.50, -1096.50, 26.00),
         spawnhead = 343.20,
+        buyspawnpoint = vector3(-17.3964, -1079.5675, 26.6721),
+        buyspawnhead = 133.68,
     },
 }

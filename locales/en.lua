@@ -18,6 +18,10 @@ Locales['en'] = {
 
   ['vehicleshop_item_loading'] = "~r~LOADING...~s",
   ['vehicleshop_item_loading_error'] = "~r~ERROR~s",
+
+  ['notifications_titel'] = "Cardealer",
+  ['notifications_notenoughmoney'] = "You don't have enough money",
+  ['notifications_successbuy'] = "You have been deducted %s$ from %s",
 }
 
 

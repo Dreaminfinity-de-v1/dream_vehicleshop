@@ -1,6 +1,15 @@
 ESX = nil
+DreamAddon = nil
 menuPool = NativeUI.CreatePool()
-TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+
+Citizen.CreateThread(function()
+  while ESX == nil do
+    TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+    Citizen.Wait(0)
+  end
+end)
+
+TriggerEvent('dream_addon:getSharedObject', function(obj) DreamAddon = obj end)
 
 AddEventHandler('onResourceStop', function(resourceName)
     if (GetCurrentResourceName() ~= resourceName) then
@@ -10,6 +19,4 @@ AddEventHandler('onResourceStop', function(resourceName)
     removeNPCs()
     clearCam()
     clearVehicle()
-
 end)
-

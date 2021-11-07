@@ -56,6 +56,7 @@ function addVehicleList(menu, shop)
     end
 end
 
-function buyVehicle(menu, item, panels) -- TODO
+function buyVehicle(menu, item, panels)
     TriggerServerEvent('dream_vehicleshop:buyVehicle', interactionArea, menu.vehicle.categoryIndex, menu.vehicle.index, menu.vehicle.maincolor, menu.vehicle.secondcolor)
 end
+

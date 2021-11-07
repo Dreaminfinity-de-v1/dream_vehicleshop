@@ -38,7 +38,7 @@ function setVehicle(_menu, vehicledata, coords, heading)
 
         FreezeEntityPosition(vehicle, true)
         SetEntityCollision(vehicle, false, false)
-        SetVehicleLivery(vehicle, vehicledata.livery or 0)
+        setLivery(vehicle, vehicledata.livery)
 
         updateColor(vehicledata)
         
@@ -62,4 +62,12 @@ function updateColor(vehicledata)
 
     SetVehicleColours(vehicle, Config.Colors[vehicledata.maincolor].id, Config.Colors[vehicledata.secondcolor].id)
     SetVehicleExtraColours(vehicle, 0, 156) -- 156 = default alloy color.
+end
+
+function setLivery(vehicle, livery)
+    if GetVehicleLiveryCount(vehicle) >= 0 then
+        ESX.Game.SetVehicleProperties(vehicle, {modLivery = livery or 0})
+    else
+        ESX.Game.SetVehicleProperties(vehicle, {modLivery = livery or -1})
+    end
 end

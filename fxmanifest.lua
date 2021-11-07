@@ -6,7 +6,7 @@ description 'Vehicleshop from Dreaminfinity.de'
 
 author 'EThunder, Grewo'
 
-version '0.6.0-alpha'
+version 'v0.1.0-beta'
 
 server_scripts {
 	'@es_extended/locale.lua',
@@ -34,13 +34,14 @@ client_scripts {
 	'catalog_car_underclass.lua',
 	'config_shops.lua', -- Always load at last
 
-	
+	'client/client.lua',
+
 	'cl_sv_utils.lua',
 	'client/functions/setcam.lua',
 	'client/functions/setvehicle.lua',
+	'client/functions/buyvehicle.lua',
 	'client/functions/utils.lua',
 
-	'client/client.lua',
 	'client/interactions.lua',
 	'client/blips_npcs.lua',
 	'client/vehicleshop_menu/open_dealermenu.lua',
@@ -51,7 +52,7 @@ dependencies {
 	'es_extended',
 	'NativeUILua',
 	'dream_addon',
-	--'mysql-async',
-	--'dream_garage',
+	'dream_garage',
+	'mysql-async',
 	--'zf_dialog',
 }

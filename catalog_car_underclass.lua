@@ -1,8 +1,9 @@
 Config.Catalog.car_underclass = {
     {
         titel = "Motorcycles",
+        --type = 'car',
         vehicles = {
-            {model = "sanctus", price = 10, titel = nil},
+            {model = "sanctus", price = 10, titel = nil}, --type
             {model = "oppressor", price = 20, titel = nil},
             {model = "double", price = 30, titel = nil},
             {model = "bati", price = 30, titel = nil},
@@ -60,7 +61,7 @@ Config.Catalog.car_underclass = {
     {
         titel = "Compacts",
         vehicles = {
-            {model = "brioso", price = 10, titel = nil},
+            {model = "brioso", price = 20, titel = nil},
             {model = "panto", price = 20, titel = nil},
             {model = "blista", price = 30, titel = nil},
             {model = "prairie", price = 30, titel = nil},
