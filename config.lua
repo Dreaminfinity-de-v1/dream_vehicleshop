@@ -23,8 +23,8 @@ Config.Notification = {
 }
 
 Config.Transferplate = {
-    prefix = 'DI ',
-    scheme = '*****',
+    prefix = 'DREAM',
+    scheme = '***',
 }
 
 Config.Colors           = {
