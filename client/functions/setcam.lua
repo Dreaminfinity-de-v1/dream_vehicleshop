@@ -16,7 +16,9 @@ end
 
 function clearCam()
     
-    RenderScriptCams(false, true, 1000, true, true)
-    DestroyCam(cam, true)
+    if cam then
+        RenderScriptCams(false, true, 1000, true, true)
+        DestroyCam(cam, true)
+    end
 end
 
