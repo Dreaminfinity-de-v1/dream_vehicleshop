@@ -17,7 +17,7 @@ AddEventHandler('dream_vehicleshop:buyVehicle', function(shopId, categoryIndex, 
 
     if moneycheck.result == true then
         --TODO: after activeded, timer with 'Loading' - Purchase lasts after confirmation
-        DreamAddon.TriggerClientCallback('dream_vehicleshop:getVehicleProps', src, function(vehicleprops) 
+        DreamAddon.TriggerClientCallback('dream_vehicleshop:getVehicleProps', src, function(vehicleprops)
             vehicleprops.model = GetHashKey(vehicle.model)
             xPlayer.removeAccountMoney(moneycheck.account, vehicle.price)
             TriggerClientEvent("swt_notifications:captionIcon",src,_U('notifications_titel'),_U('notifications_successbuy', vehicle.price, moneycheck.account),Config.Notification.pos,Config.Notification.timeout,Config.Notification.color.success,'white',true,Config.Notification.icons.default)

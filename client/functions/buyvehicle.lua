@@ -1,5 +1,4 @@
 DreamAddon.RegisterClientCallback('dream_vehicleshop:getVehicleProps', function(cb, vehicledata, maincolor, secondcolor, plate)
-    
     local ped = GetPlayerPed(-1)
     local playerCoords = GetEntityCoords(ped)
 
@@ -22,7 +21,6 @@ DreamAddon.RegisterClientCallback('dream_vehicleshop:getVehicleProps', function(
             plate = plate
         })
 
-        Citizen.Wait(2500)
         cb(ESX.Game.GetVehicleProperties(_vehicle))
 
         ESX.Game.DeleteVehicle(_vehicle)
