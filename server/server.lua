@@ -16,7 +16,6 @@ AddEventHandler('dream_vehicleshop:buyVehicle', function(shopId, categoryIndex, 
     local plate = exports.dream_garage:getRandomPlate(Config.Transferplate.prefix, Config.Transferplate.scheme)
 
     if moneycheck.result == true then
-        --TODO: after activeded, timer with 'Loading' - Purchase lasts after confirmation
         DreamAddon.TriggerClientCallback('dream_vehicleshop:getVehicleProps', src, function(vehicleprops)
             vehicleprops.model = GetHashKey(vehicle.model)
             xPlayer.removeAccountMoney(moneycheck.account, vehicle.price)

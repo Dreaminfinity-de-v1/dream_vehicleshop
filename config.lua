@@ -24,7 +24,7 @@ Config.Notification = {
 
 Config.Transferplate = {
     prefix = 'DREAM',
-    scheme = '***',
+    scheme = '111',
 }
 
 Config.Colors           = {
