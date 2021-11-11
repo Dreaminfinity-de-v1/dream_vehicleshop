@@ -27,22 +27,31 @@ DreamAddon.RegisterClientCallback('dream_vehicleshop:getVehicleProps', function(
     end)
 end)
 
-RegisterNetEvent('dream_vehicleshop:buySuccess', function(vehicleprops, shop, vehicledata)
-    --TODO: check spawnpoint - free place
-    ESX.Game.SpawnVehicle(vehicleprops.model, shop.buyspawnpoint, shop.buyspawnhead, function(_vehicle) 
+RegisterNetEvent('dream_vehicleshop:buySuccess', function(vehicleprops, shop, vehicledata, buyspawnpointindex)
+
+    local spawnpoint = shop.buyspawnpoint[buyspawnpointindex]
+
+    ESX.Game.SpawnVehicle(vehicleprops.model, spawnpoint.coords, spawnpoint.heading, function(_vehicle) 
         ESX.Game.SetVehicleProperties(_vehicle, vehicleprops)
 
-        menuPool:CloseAllMenus()
+        Citizen.CreateThread(function ()
+            local blip = AddBlipForCoord(spawnpoint.coords.x, spawnpoint.coords.y, spawnpoint.coords.z)
+            SetBlipSprite(blip, 1)
+            SetBlipDisplay(blip, 8)
+            SetBlipColour(blip, 61)
+            SetBlipScale(blip, 1.0)
+            SetBlipAsShortRange(blip, true)
+            SetBlipRoute(blip, true)
 
-        loading = true
-
-        error = false
-
-        clearCam()
-
-        clearVehicle()
-
-        menuPool:Clear()
+            while true do
+                Citizen.Wait(500)
+                if DoesEntityExist(_vehicle) == false or GetPedInVehicleSeat(_vehicle, -1) ~= 0 then
+                    RemoveBlip(blip)
+                    break
+                end
+            end
+        end)
+        HasAlreadyEnteredInteractionArea = false
 
     end)
 end)

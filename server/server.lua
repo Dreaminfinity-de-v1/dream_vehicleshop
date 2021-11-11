@@ -4,7 +4,7 @@ TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 TriggerEvent('dream_addon:getSharedObject', function(obj) DreamAddon = obj end)
 
 RegisterNetEvent('dream_vehicleshop:buyVehicle')
-AddEventHandler('dream_vehicleshop:buyVehicle', function(shopId, categoryIndex, vehicleIndex, maincolorIndex, secondcolorIndex)
+AddEventHandler('dream_vehicleshop:buyVehicle', function(shopId, categoryIndex, vehicleIndex, maincolorIndex, secondcolorIndex, buyspawnpointindex)
     local src = source
     local shop = getShopFromId(shopId)
     local category = shop.catalog[categoryIndex]
@@ -22,7 +22,7 @@ AddEventHandler('dream_vehicleshop:buyVehicle', function(shopId, categoryIndex, 
             TriggerClientEvent("swt_notifications:captionIcon",src,_U('notifications_titel'),_U('notifications_successbuy', vehicle.price, moneycheck.account),Config.Notification.pos,Config.Notification.timeout,Config.Notification.color.success,'white',true,Config.Notification.icons.default)
             exports.dream_garage:setVehicle(vehicle.type or category.type or shop.type, xPlayer.getIdentifier(), vehicleprops)
             exports.dream_garage:setVehicleGarage(vehicleprops.plate, nil)
-            TriggerClientEvent('dream_vehicleshop:buySuccess', src, vehicleprops, shop, vehicle)
+            TriggerClientEvent('dream_vehicleshop:buySuccess', src, vehicleprops, shop, vehicle, buyspawnpointindex)
         end, vehicle, maincolor, secondcolor, plate)
     else
         TriggerClientEvent("swt_notifications:captionIcon",src,_U('notifications_titel'),_U('notifications_notenoughmoney'),Config.Notification.pos,Config.Notification.timeout,Config.Notification.color.negative,'white',true,Config.Notification.icons.default)

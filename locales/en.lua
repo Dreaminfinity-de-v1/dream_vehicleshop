@@ -22,6 +22,7 @@ Locales['en'] = {
   ['notifications_titel'] = "Cardealer",
   ['notifications_notenoughmoney'] = "You don't have enough money",
   ['notifications_successbuy'] = "You have been deducted %s$ from %s",
+  ['notifications_notfreespace'] = "Parking space occupied",
 }
 
 

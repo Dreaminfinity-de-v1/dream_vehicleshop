@@ -5,8 +5,6 @@ npcs  = {}
 
 Citizen.CreateThread(function()
 
-	if not Config.EnableBlips then return end
-
     blips['dealer'] = {}
 	for i, v in ipairs(Config.Shops) do
 
@@ -17,9 +15,25 @@ Citizen.CreateThread(function()
 
         -- NPCs
         spawnNPC(v.dealer.type, v.dealer.model, v.dealer.pos, v.dealer.heading)
-
 	end
+
 end)
+
+
+Citizen.CreateThread(function()
+    while Config.DebugMarker do
+        Citizen.Wait(0)
+
+        for i,v in ipairs(Config.Shops) do
+            for i2,v2 in ipairs(v.buyspawnpoint) do
+                DrawMarker(28, v2.coords.x, v2.coords.y, v2.coords.z, 0, 0, 0, 0, 0, 0,
+                v2.radius + 0.0, v2.radius + 0.0, v2.radius + 0.0, 255, 0, 0, 100, 0, 0, 0, 0)
+            end
+        end
+
+    end
+end)
+
 
 
 function removeNPCs()

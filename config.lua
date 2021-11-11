@@ -2,7 +2,7 @@ Config                  = {}
 Config.Catalog          = {}
 
 Config.Locale           = 'en'
-Config.EnableBlips      = true
+Config.DebugMarker      = false
 
 Config.NPCsDefaultType  = 4
 Config.NPCsDefaultModel = "ig_mp_agent14"

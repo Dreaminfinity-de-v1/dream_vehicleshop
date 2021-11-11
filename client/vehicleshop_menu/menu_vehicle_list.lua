@@ -57,6 +57,17 @@ function addVehicleList(menu, shop)
 end
 
 function buyVehicle(menu, item, panels)
-    TriggerServerEvent('dream_vehicleshop:buyVehicle', interactionArea, menu.vehicle.categoryIndex, menu.vehicle.index, menu.vehicle.maincolor, menu.vehicle.secondcolor)
+    found = false
+    for i,v in ipairs(shop.buyspawnpoint) do
+        if #ESX.Game.GetVehiclesInArea(v.coords, v.radius) <= 0 then
+            found = true
+            TriggerServerEvent('dream_vehicleshop:buyVehicle', interactionArea, menu.vehicle.categoryIndex, menu.vehicle.index, menu.vehicle.maincolor, menu.vehicle.secondcolor, i)
+            break
+        end
+    end
+
+    if not found then
+        TriggerEvent("swt_notifications:captionIcon",_U('notifications_titel'),_U('notifications_notfreespace'),Config.Notification.pos,Config.Notification.timeout,Config.Notification.color.negative,'white',true,Config.Notification.icons.default)
+    end
 end
 
