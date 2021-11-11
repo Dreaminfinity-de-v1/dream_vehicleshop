@@ -21,10 +21,9 @@ Config.Shops        = {
         },
         catalog = Config.Catalog.car_underclass,
         camPos = vector3(-53.25, -1091.90, 28.20),
-        spawnpoint = vector3(-48.50, -1096.50, 26.00),
-        spawnhead = 343.20,
-        buyspawnpoint = {
-            { coords = vector3(-17.3964, -1079.5675, 26.6721), heading = 133.68, radius = 5.0 },
+        showplace = { coords = vector3(-48.50, -1096.50, 26.00), heading = 343.20 },
+        buyspawnpoints = {
+            { coords = vector3(-17.77, -1079.75, 26.12), heading = 124.65, radius = 5.0 },
             { coords = vector3(-8.35, -1081.97, 26.26), heading = 127.40, radius = 5.0 },
             { coords = vector3(-45.28, -1082.97, 26.30), heading = 70.45, radius = 3.0 },
         },

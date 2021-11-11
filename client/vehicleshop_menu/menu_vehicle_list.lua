@@ -58,7 +58,7 @@ end
 
 function buyVehicle(menu, item, panels)
     found = false
-    for i,v in ipairs(shop.buyspawnpoint) do
+    for i,v in ipairs(shop.buyspawnpoints) do
         if #ESX.Game.GetVehiclesInArea(v.coords, v.radius) <= 0 then
             found = true
             TriggerServerEvent('dream_vehicleshop:buyVehicle', interactionArea, menu.vehicle.categoryIndex, menu.vehicle.index, menu.vehicle.maincolor, menu.vehicle.secondcolor, i)

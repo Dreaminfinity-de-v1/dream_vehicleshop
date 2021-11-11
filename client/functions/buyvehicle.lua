@@ -29,7 +29,7 @@ end)
 
 RegisterNetEvent('dream_vehicleshop:buySuccess', function(vehicleprops, shop, vehicledata, buyspawnpointindex)
 
-    local spawnpoint = shop.buyspawnpoint[buyspawnpointindex]
+    local spawnpoint = shop.buyspawnpoints[buyspawnpointindex]
 
     ESX.Game.SpawnVehicle(vehicleprops.model, spawnpoint.coords, spawnpoint.heading, function(_vehicle) 
         ESX.Game.SetVehicleProperties(_vehicle, vehicleprops)

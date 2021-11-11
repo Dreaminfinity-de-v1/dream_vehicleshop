@@ -25,7 +25,7 @@ Citizen.CreateThread(function()
         Citizen.Wait(0)
 
         for i,v in ipairs(Config.Shops) do
-            for i2,v2 in ipairs(v.buyspawnpoint) do
+            for i2,v2 in ipairs(v.buyspawnpoints) do
                 DrawMarker(28, v2.coords.x, v2.coords.y, v2.coords.z, 0, 0, 0, 0, 0, 0,
                 v2.radius + 0.0, v2.radius + 0.0, v2.radius + 0.0, 255, 0, 0, 100, 0, 0, 0, 0)
             end
