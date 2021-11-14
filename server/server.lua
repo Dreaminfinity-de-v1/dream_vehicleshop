@@ -9,18 +9,19 @@ AddEventHandler('dream_vehicleshop:buyVehicle', function(shopId, categoryIndex, 
     local shop = getShopFromId(shopId)
     local category = shop.catalog[categoryIndex]
     local vehicle = category.vehicles[vehicleIndex]
+    local vehicletype = vehicle.type or category.type or shop.type
     local maincolor = Config.Colors[maincolorIndex]
     local secondcolor = Config.Colors[secondcolorIndex]
     local xPlayer = ESX.GetPlayerFromId(src)
     local moneycheck = checkmoney(xPlayer, vehicle.price)
-    local plate = exports.dream_garage:getRandomPlate(Config.Transferplate.prefix, Config.Transferplate.scheme)
+    local plate = exports.dream_garage:getRandomPlateByVehicletype(vehicletype)
 
     if moneycheck.result == true then
         DreamAddon.TriggerClientCallback('dream_vehicleshop:getVehicleProps', src, function(vehicleprops)
             vehicleprops.model = GetHashKey(vehicle.model)
             xPlayer.removeAccountMoney(moneycheck.account, vehicle.price)
             TriggerClientEvent("swt_notifications:captionIcon",src,_U('notifications_titel'),_U('notifications_successbuy', vehicle.price, moneycheck.account),Config.Notification.pos,Config.Notification.timeout,Config.Notification.color.success,'white',true,Config.Notification.icons.default)
-            exports.dream_garage:setVehicle(vehicle.type or category.type or shop.type, xPlayer.getIdentifier(), vehicleprops)
+            exports.dream_garage:setVehicle(vehicletype, xPlayer.getIdentifier(), vehicleprops)
             exports.dream_garage:setVehicleGarage(vehicleprops.plate, nil)
             TriggerClientEvent('dream_vehicleshop:buySuccess', src, vehicleprops, shop, vehicle, buyspawnpointindex)
         end, vehicle, maincolor, secondcolor, plate)

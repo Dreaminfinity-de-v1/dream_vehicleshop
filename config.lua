@@ -22,11 +22,6 @@ Config.Notification = {
     },
 }
 
-Config.Transferplate = {
-    prefix = 'DREAM',
-    scheme = '111',
-}
-
 Config.Colors           = {
     {id = 0, name = "Metallic Black"},
     {id = 27, name = "Metallic Red"},

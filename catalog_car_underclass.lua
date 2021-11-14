@@ -1,7 +1,7 @@
 Config.Catalog.car_underclass = {
     {
         titel = "Motorcycles",
-        --type = 'car',
+        type = 'motorcycle',
         vehicles = {
             {model = "sanctus", price = 10, titel = nil}, --type
             {model = "oppressor", price = 20, titel = nil},
