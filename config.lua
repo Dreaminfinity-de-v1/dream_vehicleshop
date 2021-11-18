@@ -22,6 +22,12 @@ Config.Notification = {
     },
 }
 
+Config.AllowedPayments = {
+    {name = 'money', label = _U('config_allowedpayments_'..'money')},
+    {name = 'bank', label = _U('config_allowedpayments_'..'bank')},
+    --{name = 'black_money', label = _U('config_allowedpayments_black_money')},
+}
+
 Config.Colors           = {
     {id = 0, name = "Metallic Black"},
     {id = 27, name = "Metallic Red"},

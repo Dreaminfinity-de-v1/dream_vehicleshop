@@ -43,12 +43,16 @@ function addVehicleList(menu, shop)
                     end
                 end
                 
-                buy =  NativeUI.CreateItem(_U('vehicleshop_item_buy'), _U('vehicleshop_item_buy_desc'))
-                buy:RightLabel(_U('vehicleshop_item_buy_label',v2.price))
-                
-                vehiclemenu:AddItem(buy)
+                local buymenu = menuPool:AddSubMenu(vehiclemenu, _U('vehicleshop_item_paymenttitel'), _U('vehicleshop_item_buy_desc'))
 
-                buy.Activated = buyVehicle
+                for i3,v3 in ipairs(Config.AllowedPayments) do
+                    local buy =  NativeUI.CreateItem(_U('vehicleshop_item_payment', v3.label), "")
+                    buy:RightLabel(_U('vehicleshop_item_pricesuffix', v2.price))
+                    buy.paymentindex = i3
+                    buymenu:AddItem(buy)
+                    
+                    buy.Activated = buyVehicle
+                end
 
 
             end
@@ -57,11 +61,12 @@ function addVehicleList(menu, shop)
 end
 
 function buyVehicle(menu, item, panels)
+    local vehiclemenu = menu.ParentItem.ParentMenu
     found = false
     for i,v in ipairs(shop.buyspawnpoints) do
         if #ESX.Game.GetVehiclesInArea(v.coords, v.radius) <= 0 then
             found = true
-            TriggerServerEvent('dream_vehicleshop:buyVehicle', interactionArea, menu.vehicle.categoryIndex, menu.vehicle.index, menu.vehicle.maincolor, menu.vehicle.secondcolor, i)
+            TriggerServerEvent('dream_vehicleshop:buyVehicle', interactionArea, vehiclemenu.vehicle.categoryIndex, vehiclemenu.vehicle.index, vehiclemenu.vehicle.maincolor, vehiclemenu.vehicle.secondcolor, i, item.paymentindex)
             break
         end
     end

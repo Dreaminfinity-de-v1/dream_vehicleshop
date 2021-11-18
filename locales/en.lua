@@ -15,6 +15,13 @@ Locales['en'] = {
   ['vehicleshop_item_buy'] = "~g~~h~Buy~h~ the vehicle",
   ['vehicleshop_item_buy_label'] = "%s$",
   ['vehicleshop_item_buy_desc'] = "",
+  ['vehicleshop_item_paymenttitel'] = "Buyoption",
+  ['vehicleshop_item_payment'] = "Paymentoption: %s",
+  ['vehicleshop_item_pricesuffix'] = "%s$",
+
+  ['config_allowedpayments_money'] = "Cash",
+  ['config_allowedpayments_bank'] = "Bank",
+  ['config_allowedpayments_black_money'] = "Black Money",
 
   ['vehicleshop_item_loading'] = "~r~LOADING...~s",
   ['vehicleshop_item_loading_error'] = "~r~ERROR~s",

@@ -6,7 +6,7 @@ description 'Vehicleshop from Dreaminfinity.de'
 
 author 'EThunder, Grewo'
 
-version 'v1.0.0-beta'
+version 'v1.0.1-beta'
 
 server_scripts {
 	'@es_extended/locale.lua',
