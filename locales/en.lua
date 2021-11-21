@@ -28,6 +28,10 @@ Locales['en'] = {
   ['config_allowedpayments_bank'] = "Bank",
   ['config_allowedpayments_black_money'] = "Black Money",
 
+  ['previuos_cam'] = "Previous cam",
+  ['next_cam'] = "Next cam",
+  ['selected_cam'] = "Selected cam: %s / %s",
+
   ['vehicleshop_item_loading'] = "~r~LOADING...~s",
   ['vehicleshop_item_loading_error'] = "~r~ERROR~s",
 

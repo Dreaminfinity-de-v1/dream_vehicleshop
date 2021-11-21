@@ -20,7 +20,11 @@ Config.Shops        = {
             radius = 3,
         },
         catalog = Config.Catalog.car_underclass,
-        camPos = vector3(-53.25, -1091.90, 28.20),
+        camPos = {
+            vector3(-53.25, -1091.90, 28.20),
+            vector3(-40.00, -1094.45, 27.80),
+            vector3(-45.15, -1104.40, 26.70),
+        },
         showplace = { coords = vector3(-48.50, -1096.50, 26.00), heading = 343.20 },
         buyspawnpoints = {
             { coords = vector3(-17.77, -1079.75, 26.12), heading = 124.65, radius = 5.0 },

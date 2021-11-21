@@ -44,8 +44,13 @@ function openDealerMenu()
         HasAlreadyEnteredInteractionArea = false
         menuPool:Clear()
     end
-    
+
+
+
     while isInInteractionArea and HasAlreadyEnteredInteractionArea do
+
+        scaleform(shop)
+
         Citizen.Wait(0)
         menuPool:ProcessMenus()
     end
@@ -70,4 +75,36 @@ function OnIndexChange(menu, index)
     if submenu.vehicle ~= nil then
         setVehicle(menu, submenu.vehicle, shop.showplace.coords, shop.showplace.heading)
     end
+end
+
+function scaleform()
+    
+    local scale = RequestScaleformMovie("INSTRUCTIONAL_BUTTONS")
+
+    BeginScaleformMovieMethod(scale, "CLEAR_ALL")
+    EndScaleformMovieMethod()
+    
+    BeginScaleformMovieMethod(scale, "SET_DATA_SLOT")
+    ScaleformMovieMethodAddParamInt(0)
+    PushScaleformMovieMethodParameterString("~INPUT_FRONTEND_RIGHT~")
+    PushScaleformMovieMethodParameterString(_U('next_cam'))
+    EndScaleformMovieMethod()
+
+    BeginScaleformMovieMethod(scale, "SET_DATA_SLOT")
+    ScaleformMovieMethodAddParamInt(1)
+    PushScaleformMovieMethodParameterString("~INPUT_FRONTEND_LEFT~")
+    PushScaleformMovieMethodParameterString(_U('previuos_cam'))
+    EndScaleformMovieMethod()
+
+    BeginScaleformMovieMethod(scale, "SET_DATA_SLOT")
+    ScaleformMovieMethodAddParamInt(2)
+    PushScaleformMovieMethodParameterString(_('selected_cam', camindex, #shop.camPos))
+    EndScaleformMovieMethod()
+
+    BeginScaleformMovieMethod(scale, "DRAW_INSTRUCTIONAL_BUTTONS")
+    ScaleformMovieMethodAddParamInt(0)
+    EndScaleformMovieMethod()
+
+    DrawScaleformMovieFullscreen(scale, 255, 255, 255, 255, 0)
+
 end
