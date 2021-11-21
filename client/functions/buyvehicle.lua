@@ -27,31 +27,33 @@ DreamAddon.RegisterClientCallback('dream_vehicleshop:getVehicleProps', function(
     end)
 end)
 
-RegisterNetEvent('dream_vehicleshop:buySuccess', function(vehicleprops, shop, vehicledata, buyspawnpointindex)
+RegisterNetEvent('dream_vehicleshop:buySuccess', function(shop, vehicledata, buyspawnpointindex, vehicleprops)
 
     local spawnpoint = shop.buyspawnpoints[buyspawnpointindex]
-
-    ESX.Game.SpawnVehicle(vehicleprops.model, spawnpoint.coords, spawnpoint.heading, function(_vehicle) 
-        ESX.Game.SetVehicleProperties(_vehicle, vehicleprops)
-
-        Citizen.CreateThread(function ()
-            local blip = AddBlipForCoord(spawnpoint.coords.x, spawnpoint.coords.y, spawnpoint.coords.z)
-            SetBlipSprite(blip, 1)
-            SetBlipDisplay(blip, 8)
-            SetBlipColour(blip, 61)
-            SetBlipScale(blip, 1.0)
-            SetBlipAsShortRange(blip, true)
-            SetBlipRoute(blip, true)
-
-            while true do
-                Citizen.Wait(500)
-                if DoesEntityExist(_vehicle) == false or GetPedInVehicleSeat(_vehicle, -1) ~= 0 then
-                    RemoveBlip(blip)
-                    break
+    if vehicleprops ~= nil then
+        ESX.Game.SpawnVehicle(vehicleprops.model, spawnpoint.coords, spawnpoint.heading, function(_vehicle) 
+            ESX.Game.SetVehicleProperties(_vehicle, vehicleprops)
+    
+            Citizen.CreateThread(function ()
+                local blip = AddBlipForCoord(spawnpoint.coords.x, spawnpoint.coords.y, spawnpoint.coords.z)
+                SetBlipSprite(blip, 1)
+                SetBlipDisplay(blip, 8)
+                SetBlipColour(blip, 61)
+                SetBlipScale(blip, 1.0)
+                SetBlipAsShortRange(blip, true)
+                SetBlipRoute(blip, true)
+    
+                while true do
+                    Citizen.Wait(500)
+                    if DoesEntityExist(_vehicle) == false or GetPedInVehicleSeat(_vehicle, -1) ~= 0 then
+                        RemoveBlip(blip)
+                        break
+                    end
                 end
-            end
+            end)
+            HasAlreadyEnteredInteractionArea = false
         end)
+    else
         HasAlreadyEnteredInteractionArea = false
-
-    end)
+    end
 end)

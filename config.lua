@@ -9,6 +9,11 @@ Config.NPCsDefaultModel = "ig_mp_agent14"
 
 Config.KeyControle      = 38 -- Default: 38 (E)
 
+Config.TransferPrice    = {
+    spawn    = 0,
+    transfer = 75.0,
+}
+
 Config.Notification = {
     pos = 'top-left',
     timeout = 5000,
