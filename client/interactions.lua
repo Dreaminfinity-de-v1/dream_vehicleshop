@@ -75,7 +75,7 @@ Citizen.CreateThread(function ()
 
             ESX.ShowHelpNotification(interactionMSG)
 
-            if IsControlJustReleased(0, Config.KeyControle) then
+            if IsControlJustReleased(0, Config.KeyControles.menuopen) then
 
                 if interactionPart == 'dealer' then
                     Citizen.CreateThread(function()

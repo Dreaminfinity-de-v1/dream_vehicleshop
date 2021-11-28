@@ -86,13 +86,13 @@ function scaleform()
     
     BeginScaleformMovieMethod(scale, "SET_DATA_SLOT")
     ScaleformMovieMethodAddParamInt(0)
-    PushScaleformMovieMethodParameterString("~INPUT_FRONTEND_RIGHT~")
+    PushScaleformMovieMethodParameterString('~'..Config.KeyControles.camnext.name..'~')
     PushScaleformMovieMethodParameterString(_U('next_cam'))
     EndScaleformMovieMethod()
 
     BeginScaleformMovieMethod(scale, "SET_DATA_SLOT")
     ScaleformMovieMethodAddParamInt(1)
-    PushScaleformMovieMethodParameterString("~INPUT_FRONTEND_LEFT~")
+    PushScaleformMovieMethodParameterString('~'..Config.KeyControles.camprevious.name..'~')
     PushScaleformMovieMethodParameterString(_U('previuos_cam'))
     EndScaleformMovieMethod()
 

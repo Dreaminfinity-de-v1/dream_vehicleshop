@@ -54,11 +54,11 @@ function changeCam(shop)
     Citizen.CreateThread(function ()
         while isInInteractionArea and HasAlreadyEnteredInteractionArea do
             Citizen.Wait(0)
-
-            if IsControlJustReleased(0, 189) then
+            
+            if IsControlJustReleased(0, Config.KeyControles.camprevious.id) then
                 previousCam(shop)
 
-            elseif IsControlJustReleased(0, 190) then
+            elseif IsControlJustReleased(0, Config.KeyControles.camnext.id) then
                 nextCam(shop)
 
             end

@@ -7,7 +7,11 @@ Config.DebugMarker      = false
 Config.NPCsDefaultType  = 4
 Config.NPCsDefaultModel = "ig_mp_agent14"
 
-Config.KeyControle      = 38 -- Default: 38 (E)
+Config.KeyControles = {
+    menuopen = 38, -- Default: 38 (E)
+    camnext = {id = 208, name = 'INPUT_FRONTEND_RT'},
+    camprevious = {id = 207, name = 'INPUT_FRONTEND_LT'},
+}
 
 Config.TransferPrice    = {
     spawn    = 0,
